@@ -27,11 +27,14 @@ def print_notes(array):
     print(f"Заметка: {array[1]}")
     print("--------------------")
 
+
 def print_note(array):
     print(f"Заголовок: {array[0]}")
     print(f"Заметка: {array[1]}")
-    print(f"Дата/время создания: {array[2]}")
+    print(f"Дата создания: {array[2]}")
+    print(f"Время создания: {array[3]}")
     print("------------")
+
 
 def add_note(temp_list, notes_data):
     head_note = input('Введите заголовок : ')
@@ -39,9 +42,11 @@ def add_note(temp_list, notes_data):
     temp_list.append(head_note)
     temp_list.append(body)
     now = datetime.now()
-    create_time = "{}.{}.{}  {}:{}:{}".format(now.day, now.month,
-                                              now.year, now.hour,
-                                              now.minute, now.second)
+    create_date = "{}.{}.{}".format(now.day, now.month,
+                                    now.year)
+    create_time = "{}:{}:{}".format(now.hour, now.minute,
+                                    now.second)
+    temp_list.append(create_date)
     temp_list.append(create_time)
     notes_data[id] = temp_list
 
